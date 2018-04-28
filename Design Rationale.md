@@ -9,3 +9,20 @@ Advantage:
 Having another class will make it more extensible, for eg. we can implement a Throw class where the Actor "throws" the Entity and it drops at different location.
 Disadvantage:
 Implementing a whole class just to undo what "Take" does will make the project more complex, as that same functionality can also be achieved by a function.
+
+
+Droids
+
+Design Choice:
+- A SWActor variable that will let the droid know it’s owner
+- Implementing a FindActor behaviour, which will take SWActor as a parameter (we will pass-in the owner for droids), that will tell the droid where to “Move” to, it will analyse the neighbouring locations to see if owner is present. If it is then return the Direction of it’s owner, if not then command droid to move in a random direction till it reaches the grid’s end.
+- we will have two boolean flags, in order to:
+    -  check if owner is dead 
+    - see if droid is immobile or not
+
+Advantages:
+A highly flexible design that can be extended to make game more interesting. For example, Ben Kenobi can use Find Actor to find Luke to train him or TuskenRaiders can be programmed to find Ben to engage in fight with him!
+
+Disadvantages:
+At times, it might be difficult for player to keep track of SWActors and the actors they are finding.
+FindActor will be a dependency for SWActor, which can be prone to errors
