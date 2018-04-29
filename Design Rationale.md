@@ -54,8 +54,8 @@ For simplilcity we can assume that each Droid can have only one owner and each o
 ## Force
 **Design choice**
 1. For extensibility purposes, the force will be a class of its own. 
-2. A new option will be displayed but only if the player is holding the lightsaber
-3. The force will also be an action, which can only be used by characters wielding a lightsaber.
+2. A new action option will be displayed but only if the player is holding the lightsaber.
+3. Only lightsaber wielders will have the force action option.
 4. An if...else statement will be implemented to check the force level of whoever is attempting to use the force action.
 5. A new attack message will be displayed based on whether or not the user was able to attack with the lightsaber.
 
@@ -71,9 +71,13 @@ For simplilcity we can assume that each Droid can have only one owner and each o
 
 ## Lightsaber
 **Design Choice**
-1. 
+1. The force class will depend on the lightsaber, simply to use it as an object since the lightsaber can exist independently from the force class.
+2. It will be included in the if...else statement (in the force class) as a condition alongside the force level condition. 
 
 **Advantages**
+- Allows for only competent force users to attack with a lightsaber.
+- No modifications to the lightsaber class are necessary.
+- Use of the lightsaber as a condition is only a small addition. 
 -
 **Disadvantages**
--
+- Adds extra steps to allowing attacks to be made by lightsaber wielders. 
