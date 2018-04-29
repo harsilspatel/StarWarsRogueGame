@@ -15,6 +15,22 @@ Disadvantage:
 Implementing a whole class just to undo what "Take" does will make the project more complex, as that same functionality can also be achieved by a function.
 
 
+Ben Kenobi
+
+Design Choice:
+Implement an ArrayList in BenKenobi for all the players that are to be trained. That'll make it extendable for Ben to train other players, so for example, if we wish to include another player Han Solo, we can add him to Ben's list and Ben will train him when they're in the same spot.
+
+The Train class will have a method checkLocal() that will take an ArrayList of SWActors as parameter. It will check if any of those actors are on the same location as Ben. If an actor is in the same location as Ben, Train will execute upskill() method and pass-in that Actor as parameter. If there are more than one Actors at the same location, one of them will be randomly be chosen and trained.
+
+Advantages:
+- Highly flexible as if we need Ben to train some other Actor, we just have to include that Actor’s name in Ben’s ArrayList. 
+- Implementing a Train class separately will also enable some other player to perform “Train” action. So for example, if Luke has been trained, he can train Princess Leia.
+
+Disadvantages:
+- Increases dependencies and complexity of the game. It is not the most efficient solution, as implementing a train(Person) function in Ben would seem like the most efficient and easy-to-implement method.
+
+
+
 Droids
 For simplilcity we can assume that each Droid can have only one owner and each owner can own no more than one Droid.
 
