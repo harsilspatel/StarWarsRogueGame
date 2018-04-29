@@ -1,3 +1,7 @@
+The overall design choices are made keeping in mind the extensibility of the game.
+Below listed the details of design choices for each project requirement.
+
+
 Leave affordance
 
 Issue: There is currently no way for an actor to put down the item the actor is holding. That is, the actor cannot pick up anything else.
@@ -12,6 +16,7 @@ Implementing a whole class just to undo what "Take" does will make the project m
 
 
 Droids
+For simplilcity we can assume that each Droid can have only one owner and each owner can own no more than one Droid.
 
 Design Choice:
 - A SWActor variable that will let the droid know it’s owner
