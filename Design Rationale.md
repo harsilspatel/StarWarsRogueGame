@@ -64,7 +64,6 @@ For simplilcity we can assume that each Droid can have only one owner and each o
 - This makes the program more extensible rather than having the force become an attribute.
 - A check simplifies the force action where we simply need to check the character's current force level 
 
-
 **Disadvantages**
 - Requires a completely new class to be implemented. 
 
@@ -78,6 +77,6 @@ For simplilcity we can assume that each Droid can have only one owner and each o
 - Allows for only competent force users to attack with a lightsaber.
 - No modifications to the lightsaber class are necessary.
 - Use of the lightsaber as a condition is only a small addition. 
--
+
 **Disadvantages**
 - Adds extra steps to allowing attacks to be made by lightsaber wielders. 
