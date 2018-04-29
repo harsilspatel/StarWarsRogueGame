@@ -591,30 +591,6 @@ fg=red</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>350</x>
-      <y>160</y>
-      <w>480</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-fg=red</panel_attributes>
-    <additional_attributes>460.0;120.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>340</x>
-      <y>170</y>
-      <w>530</w>
-      <h>480</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-fg=red</panel_attributes>
-    <additional_attributes>510.0;460.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>350</x>
       <y>150</y>
       <w>430</w>
       <h>30</h>
@@ -694,5 +670,28 @@ fg=red</panel_attributes>
     <panel_attributes>lt=&lt;.
 fg=red</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>470</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Grid</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>170</y>
+      <w>490</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>470.0;310.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
