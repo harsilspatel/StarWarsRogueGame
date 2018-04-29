@@ -295,7 +295,8 @@ bg=light_gray</panel_attributes>
       <w>210</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>lt=.&gt;</panel_attributes>
+    <panel_attributes>lt=.&gt;
+fg=red</panel_attributes>
     <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
   </element>
   <element>
@@ -307,7 +308,8 @@ bg=light_gray</panel_attributes>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
+m1=1
+fg=red</panel_attributes>
     <additional_attributes>260.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -318,7 +320,8 @@ m1=1</panel_attributes>
       <w>300</w>
       <h>320</h>
     </coordinates>
-    <panel_attributes>lt=.&gt;</panel_attributes>
+    <panel_attributes>lt=.&gt;
+fg=red</panel_attributes>
     <additional_attributes>10.0;10.0;280.0;300.0</additional_attributes>
   </element>
 </diagram>
