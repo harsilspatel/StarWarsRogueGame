@@ -63,7 +63,7 @@ For simplilcity we can assume that each Droid can have only one owner and each o
 **Advantages**
 - This makes the program more extensible rather than having the force become an attribute.
 - A check simplifies the force action where we simply need to check the character's current force level 
-- 
+
 
 **Disadvantages**
 - Requires a completely new class to be implemented. 
