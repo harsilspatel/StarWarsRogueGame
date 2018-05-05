@@ -70,6 +70,8 @@ public class Take extends SWAffordance {
 			
 			//remove the take affordance
 			target.removeAffordance(this);
+			//add the leave affordance
+			target.addAffordance(new Leave(theItem, messageRenderer));
 		}
 	}
 
