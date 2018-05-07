@@ -59,9 +59,8 @@ Below listed the details of design choices for each project requirement.
 **Design choice**
 1. For extensibility purposes, the force will be a class of its own. 
 2. A new action option will be displayed but only if the player is holding the lightsaber.
-3. Only lightsaber wielders will have the force action option.
-4. An if...else statement will be implemented to check the force level of whoever is attempting to use the force action.
-5. A new attack message will be displayed based on whether or not the user was able to attack with the lightsaber.
+3. An if...else statement will be implemented to check the force level of whoever is attempting to use the force action.
+4. A new attack message will be displayed based on whether or not the user was able to attack with the lightsaber.
 
 
 **Advantages**
@@ -74,7 +73,7 @@ Below listed the details of design choices for each project requirement.
 
 ## Lightsaber
 **Design Choice**
-1. The force class will depend on the lightsaber, simply to use it as an object since the lightsaber can exist independently from the force class.
+1. The force class will only reference to the lightsaber's symbol.
 2. It will be included in the if...else statement (in the force class) as a condition alongside the force level condition. 
 
 **Advantages**
