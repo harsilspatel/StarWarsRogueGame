@@ -61,6 +61,8 @@ Below listed the details of design choices for each project requirement.
 2. A new action option will be displayed but only if the player is holding the lightsaber.
 3. An if...else statement will be implemented to check the force level of whoever is attempting to use the force action.
 4. A new attack message will be displayed based on whether or not the user was able to attack with the lightsaber.
+5. The accessors and mutators for the force will be implemented in the SWActor class. This is because the "force" is an action like attack
+6. This allows for both Ben and Luke to be able have their force levels set
 
 
 **Advantages**
