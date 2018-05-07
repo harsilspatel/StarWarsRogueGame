@@ -26,6 +26,7 @@ import edu.monash.fit2099.simulator.time.Scheduler;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.actions.Attack;
 import starwars.actions.Move;
+import starwars.actions.Force;
 
 public abstract class SWActor extends Actor<SWActionInterface> implements SWEntityInterface {
 	
@@ -52,6 +53,9 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	
 	/**A set of <code>Capabilities</code> of this <code>SWActor</code>*/
 	private HashSet<Capability> capabilities;
+	
+	/** An integer that represents an actor's force level. Not all actors will make use of this*/  
+	private int level;
 	
 	/**
 	 * Constructor for the <code>SWActor</code>.
@@ -82,9 +86,31 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		this.world = world;
 		this.symbol = "@";
 		
+		this.level = 0;
+		
 		//SWActors are given the Attack affordance hence they can be attacked
 		SWAffordance attack = new Attack(this, m);
 		this.addAffordance(attack);
+		
+		//SWActors are given the Force affordance hence the force can be used against them
+		SWAffordance force = new Force(this, m);
+		this.addAffordance(force);
+	}
+	
+	/**
+	 * A method that sets the user's force level
+	 * @param power
+	 */
+	public void setForce(int power){
+		this.level = power;
+	}
+	
+	/**
+	 * A method that returns the force level of an actor 
+	 * @return
+	 */
+	public int getForce(){
+		return level;
 	}
 	
 	/**
