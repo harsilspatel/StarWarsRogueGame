@@ -43,6 +43,9 @@ public class Player extends SWActor {
 	public Player(Team team, int hitpoints, MessageRenderer m, SWWorld world) {
 		super(team, hitpoints, m, world);
 		humanControlled = true; // this feels like a hack. Surely this should be dynamic
+		
+		//setting the player's (Luke's) force level
+		this.setForce(20);
 	}
 	
 	/**
@@ -75,7 +78,7 @@ public class Player extends SWActor {
 	public void describeScene() {
 		//get the location of the player and describe it
 		SWLocation location = this.world.getEntityManager().whereIs(this);
-		say(this.getShortDescription() + " [" + this.getHitpoints() + "] is at " + location.getShortDescription());
+		say(this.getShortDescription() + " [" + this.getHitpoints() + "]  + " [" + this.getForce() + "]" + " is at " location.getShortDescription());
 		
 		//get the items carried for the player
 		SWEntityInterface itemCarried = this.getItemCarried();
