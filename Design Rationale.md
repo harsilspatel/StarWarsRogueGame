@@ -58,8 +58,9 @@ Below listed the details of design choices for each project requirement.
 ## Force
 **Design choice**
 1. For extensibility purposes, the force will be a class of its own. 
-2. A new action option will be displayed but only if the player is holding the lightsaber.
+2. A new action option will be displayed
 3. An if...else statement will be implemented to check the force level of whoever is attempting to use the force action.
+4. A second condition will be if the item carried is an instance of the Lightsaber class
 4. A new attack message will be displayed based on whether or not the user was able to attack with the lightsaber.
 5. The accessors and mutators for the force will be implemented in the SWActor class. This is because the "force" is an action like attack
 6. This allows for both Ben and Luke to be able have their force levels set
@@ -75,7 +76,7 @@ Below listed the details of design choices for each project requirement.
 
 ## Lightsaber
 **Design Choice**
-1. The force class will only reference to the lightsaber's symbol.
+1. The force class will only reference to any instances of Class Lightsaber.
 2. It will be included in the if...else statement (in the force class) as a condition alongside the force level condition. 
 
 **Advantages**
