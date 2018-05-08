@@ -109,12 +109,19 @@ public class Force extends SWAffordance implements SWActionInterface {
 			}
 			//checking if the player is carrying an item AND if it's a lightsaber AND if the player's force level is less than 60
 			//if the player's force level is too low, they can't "attack" with the lightsaber and a force push is used instead
-			else if (a.getItemCarried() != null && a.getItemCarried() instanceof LightSaber && a.getForce()<60) {
-				target.takeDamage((a.getHitpoints()/20) + 5); //damage is the same as the last else which is a force push
+			else if (a.getItemCarried() != null && a.getItemCarried() instanceof LightSaber && a.getForce()>=20 && a.getForce()<60) {
+				target.takeDamage((a.getHitpoints()/20) + 5); //damage from a force push
 				a.takeDamage(2*energyForAttackWithWeapon); 
 				a.say(a.getShortDescription() + " your force level is too low to attack with a lightsaber!" + "\n" + "Luke uses a force push instead!");
 			}
-		
+		    
+		    //if the player is carrying a lightsaber item AND their force level is too low, they attack with their bare hands
+		    else if(a.getItemCarried() != null && a.getItemCarried() instanceof LightSaber && a.getForce()<20){
+				target.takeDamage((a.getHitpoints()/20) + 1); 
+				a.takeDamage(2*energyForAttackWithWeapon);
+				a.say(a.getShortDescription() + " your force level is too low to even use a force push! Luke attacks with his bare hands"
+			}
+		    
 			//if the player is carrying an item AND it's not a lightsaber, they will use the weapon they're holding and attack with it
 			else if (a.getItemCarried() != null && !(a.getItemCarried() instanceof LightSaber)){
 					if(a.getItemCarried().hasCapability(Capability.WEAPON)){
@@ -124,9 +131,9 @@ public class Force extends SWAffordance implements SWActionInterface {
 					
 				}
 			
-			  // attack using the force (e.g. force push) if none of the above if statements are executed
+			  // attack with bare hands since the player's is not carrying an item
 			else {
-				target.takeDamage((a.getHitpoints()/20) + 5); 
+				target.takeDamage((a.getHitpoints()/20) + 1); 
 				a.takeDamage(2*energyForAttackWithWeapon); 
 			}
 			
