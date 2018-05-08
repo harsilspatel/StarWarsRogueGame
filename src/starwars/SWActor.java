@@ -99,7 +99,7 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	
 	/**
 	 * A method that sets the user's force level
-	 * @param power
+	 * @param power an intger that represents the user's new force level
 	 */
 	public void setForce(int power){
 		this.level = power;
@@ -107,7 +107,7 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	
 	/**
 	 * A method that returns the force level of an actor 
-	 * @return
+	 * @return the user's force level of type integer
 	 */
 	public int getForce(){
 		return level;
