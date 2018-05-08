@@ -107,7 +107,7 @@ public class Force extends SWAffordance implements SWActionInterface {
 				}
 			
 			}
-			//checking if the player is carrying an item AND if it's a lightsaber AND if the player's force level is less than 60
+			//checking if the player is carrying an item AND if it's a lightsaber AND if the player's force level is less than 60 and more or equal to 20
 			//if the player's force level is too low, they can't "attack" with the lightsaber and a force push is used instead
 			else if (a.getItemCarried() != null && a.getItemCarried() instanceof LightSaber && a.getForce()>=20 && a.getForce()<60) {
 				target.takeDamage((a.getHitpoints()/20) + 5); //damage from a force push
