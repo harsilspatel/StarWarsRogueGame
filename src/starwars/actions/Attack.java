@@ -117,13 +117,22 @@ public class Attack extends SWAffordance implements SWActionInterface {
 			
 			SWEntityInterface itemCarried = a.getItemCarried();
 			if (itemCarried != null && !(a.getItemCarried() instanceof LightSaber)) {//if the actor is carrying an item 
-			//Additional condition added to prevent the player "attacking" with a lightsaber as this class doesn't deal with the force 
-				//Using the lightsaber can only be achieved by using the force as guidance
+			//making sure the item carried isn't a lightsaber
+			//the next else if deals with the case of the player wielding a lightsaber
 				if (itemCarried.hasCapability(Capability.WEAPON)) {
 					target.takeDamage(itemCarried.getHitpoints() + 1); // blunt weapon won't do much, but it will still do some damage
 					itemCarried.takeDamage(1); // weapon gets blunt
 					a.takeDamage(energyForAttackWithWeapon); // actor uses energy to attack
 				}
+				
+				else if(itemCarried != null && a.getItemCarried() instanceof LightSaber){ 
+					//Additional condition added to prevent the player "attacking" with a lightsaber as this class doesn't deal with the force 
+					//Using the lightsaber can only be achieved by using the force as guidance
+					target.takeDamage((a.getHitpoints()/20) + 1); //attack with bare hands like the last else statement
+					a.takeDamage(2*energyForAttackWithWeapon);
+					a.say(a.getShortDescription() + " you must use the force to attack with a lightsaber! "); //message displayed to the player
+				}
+				
 				else {//an attack with a none weapon
 					if (targetIsActor) {
 						targetActor.say("\t" + targetActor.getShortDescription()
