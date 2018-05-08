@@ -72,6 +72,7 @@ Below listed the details of design choices for each project requirement.
 
 **Disadvantages**
 - Requires a completely new class to be implemented. 
+- Have to modify the attack class to avoid use of the lightsaber when the "attack" option is selected
 
 
 ## Lightsaber
