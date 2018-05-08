@@ -126,8 +126,8 @@ public class Attack extends SWAffordance implements SWActionInterface {
 				}
 				
 				else if(itemCarried != null && a.getItemCarried() instanceof LightSaber){ 
-					//Additional condition added to prevent the player "attacking" with a lightsaber as this class doesn't deal with the force 
-					//Using the lightsaber can only be achieved by using the force as guidance
+			//Additional condition added to prevent the player "attacking" with a lightsaber as this class doesn't deal with the force 
+			//Using the lightsaber can only be achieved by using the force as guidance
 					target.takeDamage((a.getHitpoints()/20) + 1); //attack with bare hands like the last else statement
 					a.takeDamage(2*energyForAttackWithWeapon);
 					a.say(a.getShortDescription() + " you must use the force to attack with a lightsaber! "); //message displayed to the player
