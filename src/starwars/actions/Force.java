@@ -6,6 +6,8 @@ import starwars.SWActionInterface;
 import starwars.SWActor;
 import starwars.SWAffordance;
 import starwars.SWEntityInterface;
+import starwars.entities.LightSaber;
+
 
 /**
  * Command to use the force on entities.
@@ -98,7 +100,7 @@ public class Force extends SWAffordance implements SWActionInterface {
 			SWEntityInterface itemCarried = a.getItemCarried();
 			//a force level of 60 or higher is needed to "attack" with a lightsaber
 			//checking if the player is carrying an item AND if it's a lightsaber AND if the player's force level is equal or greater than 60
-			if (a.getItemCarried() != null && a.getItemCarried().getSymbol().equals("â€") && a.getForce()>=60) {
+			if (a.getItemCarried() != null && a.getItemCarried() instanceof LightSaber && a.getForce()>=60) {
 				if (itemCarried.hasCapability(Capability.WEAPON)) {
 					target.takeDamage(itemCarried.getHitpoints() + 1); 
 					a.takeDamage(energyForAttackWithWeapon); 
@@ -107,14 +109,14 @@ public class Force extends SWAffordance implements SWActionInterface {
 			}
 			//checking if the player is carrying an item AND if it's a lightsaber AND if the player's force level is less than 60
 			//if the player's force level is too low, they can't "attack" with the lightsaber and a force push is used instead
-			else if (a.getItemCarried() != null && a.getItemCarried().getSymbol().equals("â€") && a.getForce()<60) {
+			else if (a.getItemCarried() != null && a.getItemCarried() instanceof LightSaber && a.getForce()<60) {
 				target.takeDamage((a.getHitpoints()/20) + 5); //damage is the same as the last else which is a force push
 				a.takeDamage(2*energyForAttackWithWeapon); 
 				a.say(a.getShortDescription() + " your force level is too low to attack with a lightsaber!" + "\n" + "Luke uses a force push instead!");
 			}
 		
 			//if the player is carrying an item AND it's not a lightsaber, they will use the weapon they're holding and attack with it
-			else if (a.getItemCarried() != null && !a.getItemCarried().getSymbol().equals("â€")){
+			else if (a.getItemCarried() != null && !(a.getItemCarried() instanceof LightSaber)){
 					if(a.getItemCarried().hasCapability(Capability.WEAPON)){
 						target.takeDamage(a.getItemCarried().getHitpoints() + 1);
 						a.takeDamage(energyForAttackWithWeapon);
