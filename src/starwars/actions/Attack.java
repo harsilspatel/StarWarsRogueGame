@@ -6,6 +6,8 @@ import starwars.SWActionInterface;
 import starwars.SWActor;
 import starwars.SWAffordance;
 import starwars.SWEntityInterface;
+import starwars.entities.LightSaber;
+
 
 /**
  * Command to attack entities.
@@ -114,7 +116,7 @@ public class Attack extends SWAffordance implements SWActionInterface {
 			a.say(a.getShortDescription() + " is attacking " + target.getShortDescription() + "!");
 			
 			SWEntityInterface itemCarried = a.getItemCarried();
-			if (itemCarried != null && !a.getItemCarried().getSymbol().equals("â€")) {//if the actor is carrying an item 
+			if (itemCarried != null && !(a.getItemCarried() instanceof LightSaber)) {//if the actor is carrying an item 
 			//Additional condition added to prevent the player "attacking" with a lightsaber as this class doesn't deal with the force 
 				//Using the lightsaber can only be achieved by using the force as guidance
 				if (itemCarried.hasCapability(Capability.WEAPON)) {
