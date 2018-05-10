@@ -32,6 +32,11 @@ public class Droid extends SWActor {
 		}
 		say(describeLocation());
 		
+		if (SWWorld.getEntitymanager().whereIs(this).getSymbol() == "b".charAt(0)) {
+			takeDamage(10);
+			say(getShortDescription() + "the droid is moving through bad lands");
+		}
+		
 		heading = FindActor.getDirection(this, owner, this.world.getEntityManager().whereIs(this), heading);
 		say(getShortDescription() + "is heading " + heading + " next.");
 		Move myMove = new Move(heading, messageRenderer, world);
