@@ -116,10 +116,10 @@ public class Force extends SWAffordance implements SWActionInterface {
 			}
 		    
 		    //if the player is carrying a lightsaber item AND their force level is too low, they attack with their bare hands
-		    else if(a.getItemCarried() != null && a.getItemCarried() instanceof LightSaber && a.getForce()<20){
+		    else if(a.getItemCarried() != null && a.getItemCarried() instanceof LightSaber && a.getForce()<20) {
 				target.takeDamage((a.getHitpoints()/20) + 1); 
 				a.takeDamage(2*energyForAttackWithWeapon);
-				a.say(a.getShortDescription() + " your force level is too low to even use a force push! Luke attacks with his bare hands"
+				a.say(a.getShortDescription() + " your force level is too low to even use a force push! Luke attacks with his bare hands");
 			}
 		    
 			//if the player is carrying an item AND it's not a lightsaber, they will use the weapon they're holding and attack with it

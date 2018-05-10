@@ -180,7 +180,11 @@ public class SWWorld extends World {
 		tim.setSymbol("∞");
 		loc = myGrid.getLocationByCoordinates(4,3);
 		entityManager.setLocation(tim, loc);
-
+		
+		Droid r3p0 = new Droid(100, "R3P0", iface, this);
+		r3p0.setSymbol("D");
+		loc = myGrid.getLocationByCoordinates(2, 5);
+		entityManager.setLocation(r3p0, loc);
 	}
 
 	/*

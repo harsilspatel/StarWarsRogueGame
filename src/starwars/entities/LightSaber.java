@@ -66,7 +66,7 @@ public class LightSaber extends SWEntity {
 	 */
 	@Override
 	public String getSymbol() {
-		return "â€";
+		return "†";
 	}
 	
 	
