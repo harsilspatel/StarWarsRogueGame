@@ -1,8 +1,6 @@
 package starwars.entities.actors;
 
-import java.util.ArrayList;
 
-import edu.monash.fit2099.gridworld.Grid;
 import edu.monash.fit2099.simulator.space.Direction;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.SWActor;
@@ -19,18 +17,20 @@ public class Droid extends SWActor {
 	private SWActor owner;
 	Direction heading = null;
 	
-	public Droid(int hitpoints, String name, MessageRenderer m, SWWorld world) {
+	public Droid(int hitpoints, String name, MessageRenderer m, SWWorld world, SWActor owner) {
 		super(Team.NEUTRAL, 100, m, world);
 		this.name = name;
+		this.owner = owner;
+		this.hasOwner = true;
+		this.isImmobile = false;
 	}
 	
 	@Override
 	public void act() {
-		if (isDead()) {
+		if (isDead() ||  !(hasOwner) || isImmobile) {
 			return;
 		}
 		say(describeLocation());
-		
 		
 		heading = FindActor.getDirection(this, owner, this.world.getEntityManager().whereIs(this), heading);
 		say(getShortDescription() + "is heading " + heading + " next.");
