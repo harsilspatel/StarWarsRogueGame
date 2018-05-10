@@ -78,7 +78,7 @@ public class Player extends SWActor {
 	public void describeScene() {
 		//get the location of the player and describe it
 		SWLocation location = this.world.getEntityManager().whereIs(this);
-		say(this.getShortDescription() + " [" + this.getHitpoints() + "]"  + " [" + this.getForce() + "]" + " is at " location.getShortDescription());
+		say(this.getShortDescription() + " [" + this.getHitpoints() + "]"  + " [" + this.getForce() + "]" + " is at " + location.getShortDescription());
 		
 		//get the items carried for the player
 		SWEntityInterface itemCarried = this.getItemCarried();
