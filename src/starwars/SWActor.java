@@ -26,7 +26,6 @@ import edu.monash.fit2099.simulator.time.Scheduler;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.actions.Attack;
 import starwars.actions.Move;
-import starwars.actions.Force;
 
 public abstract class SWActor extends Actor<SWActionInterface> implements SWEntityInterface {
 	
@@ -91,10 +90,7 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		//SWActors are given the Attack affordance hence they can be attacked
 		SWAffordance attack = new Attack(this, m);
 		this.addAffordance(attack);
-		
-		//SWActors are given the Force affordance hence the force can be used against them
-		SWAffordance force = new Force(this, m);
-		this.addAffordance(force);
+	
 	}
 	
 	/**
