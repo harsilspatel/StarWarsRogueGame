@@ -124,29 +124,24 @@ public class Attack extends SWAffordance implements SWActionInterface {
 					itemCarried.takeDamage(1); // weapon gets blunt
 					a.takeDamage(energyForAttackWithWeapon); // actor uses energy to attack
 				}
+			}
 				
-				else if(itemCarried != null && a.getItemCarried() instanceof LightSaber){ 
-			//Additional condition added to prevent the player "attacking" with a lightsaber as this class doesn't deal with the force 
-			//Using the lightsaber can only be achieved by using the force as guidance
-					target.takeDamage((a.getHitpoints()/20) + 1); //attack with bare hands like the last else statement
+				else if(itemCarried != null && a.getItemCarried() instanceof LightSaber && a.getForce() >=60){ 
+		    	//Using the lightsaber can only be achieved by using the force as guidance
+					target.takeDamage(itemCarried.getHitpoints() + 1 ); //attack with bare hands like the last else statement
 					a.takeDamage(2*energyForAttackWithWeapon);
-					a.say(a.getShortDescription() + " you must use the force to attack with a lightsaber! "); //message displayed to the player
+					a.say(a.getShortDescription() + " sliced his opponent with a lightsaber! "); //message displayed to the player
 				}
-				
-				else {//an attack with a none weapon
-					if (targetIsActor) {
-						targetActor.say("\t" + targetActor.getShortDescription()
-								+ " is amused by " + a.getShortDescription()
-								+ "'s attempted attack with "
-								+ itemCarried.getShortDescription());
-					}
-				} 
-			}
-			else { // attack with bare hands
-				target.takeDamage((a.getHitpoints()/20) + 1); // a bare-handed attack doesn't do much damage.
-				a.takeDamage(2*energyForAttackWithWeapon); // actor uses energy. It's twice as tiring as using a weapon
-			}
-			
+		    
+				else if(itemCarried != null && a.getItemCarried() instanceof LightSaber && a.getForce() <60){ 
+				    a.say(a.getShortDescription() + " your force level is too low to attack with a lightsaber! You use your bare hands instead! ");
+				    target.takeDamage((a.getHitpoints()/20) + 1); 
+			    	a.takeDamage(2*energyForAttackWithWeapon); 
+		    	}
+		    	else { // attack with bare hands
+			    	target.takeDamage((a.getHitpoints()/20) + 1); // a bare-handed attack doesn't do much damage.
+			    	a.takeDamage(2*energyForAttackWithWeapon); // actor uses energy. It's twice as tiring as using a weapon
+		    	}
 			
 			
 			//After the attack
