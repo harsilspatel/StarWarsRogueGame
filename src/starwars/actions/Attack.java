@@ -130,13 +130,13 @@ public class Attack extends SWAffordance implements SWActionInterface {
 		        	//Using the lightsaber can only be achieved by having a high force level
 					target.takeDamage(itemCarried.getHitpoints() + 1 ); //attack with bare hands like the last else statement
 					a.takeDamage(2*energyForAttackWithWeapon);
-					a.say(a.getShortDescription() + " sliced his opponent with a lightsaber! "); //message displayed to the player
+					a.say(a.getShortDescription() + " sliced his opponent with a lightsaber!"); //message displayed to the player
 				}
 		    
 				else if(itemCarried != null && a.getItemCarried() instanceof LightSaber && a.getForce() <60){ 
 				    a.say(a.getShortDescription() + " your force level is too low to attack with a lightsaber! You use your bare hands instead! ");
 				    target.takeDamage((a.getHitpoints()/20) + 1); 
-			    	a.takeDamage(2*energyForAttackWithWeapon); 
+				    a.takeDamage(2*energyForAttackWithWeapon); 
 		    	}
 		    	else { // attack with bare hands
 			    	target.takeDamage((a.getHitpoints()/20) + 1); // a bare-handed attack doesn't do much damage.

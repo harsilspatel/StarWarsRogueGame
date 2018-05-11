@@ -1,11 +1,17 @@
 package starwars.entities.actors;
 
+import java.util.List;
+
 import edu.monash.fit2099.simulator.space.Direction;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
+import starwars.SWActor;
+import starwars.SWEntityInterface;
 import starwars.SWLegend;
+import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
 import starwars.actions.Move;
+import starwars.actions.Train;
 import starwars.entities.LightSaber;
 import starwars.entities.actors.behaviors.AttackInformation;
 import starwars.entities.actors.behaviors.AttackNeighbours;
@@ -36,7 +42,7 @@ public class BenKenobi extends SWLegend {
 		setItemCarried(bensweapon);
 		
 		//setting Ben's force level
-		this.setForce(80);
+		this.setForce(100);
 	}
 
 	public static BenKenobi getBenKenobi(MessageRenderer m, SWWorld world, Direction [] moves) {
@@ -50,6 +56,17 @@ public class BenKenobi extends SWLegend {
 
 		if(isDead()) {
 			return;
+		}
+		
+		SWLocation loc = SWWorld.getEntitymanager().whereIs(this);
+		List<SWEntityInterface> neighbours = SWWorld.getEntitymanager().contents(loc);
+		for(SWActor disciple: this.getDisciples()) {
+			if (neighbours.contains(disciple) && disciple.getForce() != 100) {
+				Train train = new Train(disciple, messageRenderer);
+				scheduler.schedule(train, this, 1);
+				this.trained(disciple);
+				break;
+			}
 		}
 		
 		AttackInformation attack;

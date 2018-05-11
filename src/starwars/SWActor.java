@@ -53,7 +53,7 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	/**A set of <code>Capabilities</code> of this <code>SWActor</code>*/
 	private HashSet<Capability> capabilities;
 	
-	/** An integer that represents an actor's force level. Not all actors will make use of this*/  
+	/**An integer that represents an actor's force level. Not all actors will make use of this*/  
 	private int level;
 	
 	/**
@@ -90,7 +90,6 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		//SWActors are given the Attack affordance hence they can be attacked
 		SWAffordance attack = new Attack(this, m);
 		this.addAffordance(attack);
-	
 	}
 	
 	/**

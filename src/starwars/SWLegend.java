@@ -1,5 +1,7 @@
 package starwars;
 
+import java.util.HashSet;
+
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 
 /**
@@ -23,10 +25,14 @@ import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
  * @author Robert Merkel
  *
  */
+
+	
 public abstract class SWLegend extends SWActor {
 
 	private boolean isActivated;
 
+	/**An arrayList that represents the actors that this actor*/
+	private HashSet<SWActor> canTrain;
 	
 	/** 
 	 * Protected constructor to prevent random other code from creating 
@@ -40,8 +46,20 @@ public abstract class SWLegend extends SWActor {
 	protected SWLegend(Team team, int hitpoints, MessageRenderer m, SWWorld world) {
 		super(team, hitpoints, m, world);
 		isActivated = false;
+		this.canTrain = new HashSet<SWActor>();
 	}
-
+	
+	public void trainActor(SWActor a) {
+		this.canTrain.add(a);
+	}
+	
+	public void trained(SWActor a) {
+		this.canTrain.remove(a);
+	}
+	
+	public HashSet<SWActor> getDisciples() {
+		return this.canTrain;
+	}
 	
 	protected boolean isActive() {
 		return isActivated;
