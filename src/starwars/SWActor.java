@@ -93,11 +93,16 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	}
 	
 	/**
-	 * A method that sets the user's force level
+	 * A method that sets the user's force level, max force is 100
 	 * @param power an intger that represents the user's new force level
 	 */
 	public void setForce(int power){
-		this.level = power;
+		assert (power >= 0): "Power is non negative";
+		if (power > 100) {
+			this.level = 100;
+		} else {
+			this.level = power;
+		}
 	}
 	
 	/**

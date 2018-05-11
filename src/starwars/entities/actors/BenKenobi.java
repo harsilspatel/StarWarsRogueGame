@@ -64,7 +64,6 @@ public class BenKenobi extends SWLegend {
 			if (neighbours.contains(disciple) && disciple.getForce() != 100) {
 				Train train = new Train(disciple, messageRenderer);
 				scheduler.schedule(train, this, 1);
-				this.trained(disciple);
 				break;
 			}
 		}

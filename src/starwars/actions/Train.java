@@ -1,15 +1,11 @@
 package starwars.actions;
 
-import java.util.List;
-
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.SWActionInterface;
 import starwars.SWActor;
 import starwars.SWAffordance;
 import starwars.SWEntityInterface;
 import starwars.SWLegend;
-import starwars.SWLocation;
-import starwars.SWWorld;
 
 public class Train extends SWAffordance implements SWActionInterface {
 	
@@ -36,8 +32,15 @@ public class Train extends SWAffordance implements SWActionInterface {
 	public void act(SWActor a) {
 		if (a instanceof SWLegend) {
 			SWActor disciple = (SWActor) this.getTarget();
-			disciple.setForce(100);
-			a.say(a.getShortDescription() + " trained " + disciple.getShortDescription());
+			disciple.setForce(disciple.getForce() + 20);
+			if (disciple.getForce() < 100) {
+				a.say(a.getShortDescription() + "'s training improved " + disciple.getShortDescription() + "'s force");
+			}
+			else {
+				a.say(a.getShortDescription() + " has helped " + disciple.getShortDescription() + " master the force!");
+				((SWLegend) a).trained(disciple);
+			}
+			
 		} else {
 			a.say("Uh oh!, " + a.getShortDescription() + " has to be a legend to train!");
 		}
