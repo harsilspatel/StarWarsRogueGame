@@ -116,32 +116,34 @@ public class Attack extends SWAffordance implements SWActionInterface {
 			a.say(a.getShortDescription() + " is attacking " + target.getShortDescription() + "!");
 			
 			SWEntityInterface itemCarried = a.getItemCarried();
-			if (itemCarried != null && !(a.getItemCarried() instanceof LightSaber)) {//if the actor is carrying an item 
-			//making sure the item carried isn't a lightsaber
-			//the next else if deals with the case of the player wielding a lightsaber
-				if (itemCarried.hasCapability(Capability.WEAPON)) {
+			if (itemCarried != null) {//if the actor is carrying an item
+				
+				//if item carried is a weapon other than saber, then attack
+				//if item carried is saber, then check if force is above 60
+				if ((itemCarried.hasCapability(Capability.WEAPON) && !(itemCarried instanceof LightSaber)) || (itemCarried instanceof LightSaber && a.getForce() >= 60)) {
 					target.takeDamage(itemCarried.getHitpoints() + 1); // blunt weapon won't do much, but it will still do some damage
 					itemCarried.takeDamage(1); // weapon gets blunt
 					a.takeDamage(energyForAttackWithWeapon); // actor uses energy to attack
 				}
+				else {//an attack with a none weapon
+					if (targetIsActor) {
+						String itemDescription = itemCarried.getShortDescription();
+						
+						//attempt of attack with an unwielded lightsaber
+						if (itemCarried instanceof LightSaber) {
+							itemDescription = "unwielded saber";
+						}
+						targetActor.say("\t" + targetActor.getShortDescription()
+								+ " is amused by " + a.getShortDescription()
+								+ "'s attempted attack with "
+								+ itemDescription);
+					}
+				} 
 			}
-				
-				else if(itemCarried != null && a.getItemCarried() instanceof LightSaber && a.getForce() >=60){ 
-		        	//Using the lightsaber can only be achieved by having a high force level
-					target.takeDamage(itemCarried.getHitpoints() + 1 ); //attack with bare hands like the last else statement
-					a.takeDamage(2*energyForAttackWithWeapon);
-					a.say(a.getShortDescription() + " sliced his opponent with a lightsaber!"); //message displayed to the player
-				}
-		    
-				else if(itemCarried != null && a.getItemCarried() instanceof LightSaber && a.getForce() <60){ 
-				    a.say(a.getShortDescription() + " your force level is too low to attack with a lightsaber! You use your bare hands instead! ");
-				    target.takeDamage((a.getHitpoints()/20) + 1); 
-				    a.takeDamage(2*energyForAttackWithWeapon); 
-		    	}
-		    	else { // attack with bare hands
-			    	target.takeDamage((a.getHitpoints()/20) + 1); // a bare-handed attack doesn't do much damage.
-			    	a.takeDamage(2*energyForAttackWithWeapon); // actor uses energy. It's twice as tiring as using a weapon
-		    	}
+			else { // attack with bare hands
+				target.takeDamage((a.getHitpoints()/20) + 1); // a bare-handed attack doesn't do much damage.
+				a.takeDamage(2*energyForAttackWithWeapon); // actor uses energy. It's twice as tiring as using a weapon
+			}
 			
 			
 			//After the attack
