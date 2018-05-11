@@ -57,28 +57,27 @@ Below listed the details of design choices for each project requirement.
 
 ## Force
 **Design choice**
-1. For extensibility purposes, the force will be a class of its own. 
-2. A new action option will be displayed
-3. An if...else statement will be implemented to check the force level of whoever is attempting to use the force action.
-4. A second condition will be if the item carried is an instance of the Lightsaber class
+1. For simplicity purposes, the force will be integrated into the attack class
+2. An if...else statement will be implemented to check the force level of whoever is attempting to use the force action.
+3. A second condition will be if the item carried is an instance of the Lightsaber class
 4. A new attack message will be displayed based on whether or not the user was able to attack with the lightsaber.
-5. The accessors and mutators for the force will be implemented in the SWActor class. This is because the "force" is an action like attack
+5. The accessors and mutators for the force will be implemented in the SWActor class. This is because any actor can take a lightsaber but will not always be able to use it
 6. This allows for both Ben and Luke to be able have their force levels set
 
 
 **Advantages**
-- This makes the program more extensible rather than having the force become an attribute.
+- This makes for less coding as a new class doesn't have to be implemented.
 - A check simplifies the force action where we simply need to check the character's current force level 
 
 **Disadvantages**
-- Requires a completely new class to be implemented. 
+- Requires modification to the attack class
 - Have to modify the attack class to avoid use of the lightsaber when the "attack" option is selected
 
 
 ## Lightsaber
 **Design Choice**
-1. The force class will only reference to any instances of Class Lightsaber.
-2. It will be included in the if...else statement (in the force class) as a condition alongside the force level condition. 
+1. The attack class will only reference to any instances of Class Lightsaber.
+2. It will be included in the if...else statement (in the attack class) as a condition alongside the force level condition. 
 
 **Advantages**
 - Allows for only competent force users to attack with a lightsaber.
