@@ -116,14 +116,14 @@ public class Attack extends SWAffordance implements SWActionInterface {
 			a.say(a.getShortDescription() + " is attacking " + target.getShortDescription() + "!");
 			
 			SWEntityInterface itemCarried = a.getItemCarried();
-			if (itemCarried != null) {//if the actor is carrying an item
+			if (itemCarried != null && itemCarried.hasCapability(Capability.WEAPON)) {//if the actor is carrying an item and if it's a weapon
 				
 				//if item carried is a weapon other than saber, then attack
 				//if item carried is saber, then check if force is equal to or greater than 80
-				if ((itemCarried.hasCapability(Capability.WEAPON) && !(itemCarried instanceof LightSaber)) || (itemCarried instanceof LightSaber && a.getForce() >= 80)) {
-					target.takeDamage(itemCarried.getHitpoints() + 1); // blunt weapon won't do much, but it will still do some damage
+				if (!(itemCarried instanceof LightSaber) || itemCarried instanceof LightSaber && a.getForce() >= 80) {
+					target.takeDamage(itemCarried.getHitpoints() + 1); // damage is inflicted on the target
 					a.takeDamage(energyForAttackWithWeapon); // actor uses energy to attack
-					if(!(itemCarried instanceof LightSaber)){
+					if(!(itemCarried instanceof LightSaber)){ //lightsabers are indestructible
 					itemCarried.takeDamage(1); // weapon gets blunt
 					}
 				}
@@ -131,9 +131,9 @@ public class Attack extends SWAffordance implements SWActionInterface {
 					if (targetIsActor) {
 						String itemDescription = itemCarried.getShortDescription();
 						
-						//attempt of attack with an unwielded lightsaber
+						//attempt of attack with a lightsaber when the actor isn't powerful enough with the force
 						if (itemCarried instanceof LightSaber) {
-							itemDescription = "unwielded saber";
+							itemDescription = "an unwielded saber";
 						}
 						targetActor.say("\t" + targetActor.getShortDescription()
 								+ " is amused by " + a.getShortDescription()
