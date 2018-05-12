@@ -119,7 +119,7 @@ public class Attack extends SWAffordance implements SWActionInterface {
 			if (itemCarried != null) {//if the actor is carrying an item
 				
 				//if item carried is a weapon other than saber, then attack
-				//if item carried is saber, then check if force is above 60
+				//if item carried is saber, then check if force is equal to or greater than 80
 				if ((itemCarried.hasCapability(Capability.WEAPON) && !(itemCarried instanceof LightSaber)) || (itemCarried instanceof LightSaber && a.getForce() >= 80)) {
 					target.takeDamage(itemCarried.getHitpoints() + 1); // blunt weapon won't do much, but it will still do some damage
 					a.takeDamage(energyForAttackWithWeapon); // actor uses energy to attack
