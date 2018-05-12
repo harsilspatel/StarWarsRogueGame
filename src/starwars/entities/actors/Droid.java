@@ -17,7 +17,7 @@ public class Droid extends SWActor {
 	private boolean isImmobile;
 	private boolean hasOwner;
 	private SWActor owner;
-	Direction heading = null;
+	private Direction heading = null;
 	
 	/**
 	 * Create a Droid.
@@ -79,7 +79,7 @@ public class Droid extends SWActor {
 		
 		
 		//getting next direction
-		heading = FindActor.getDirection(this, owner, this.world.getEntityManager().whereIs(this), heading);
+		heading = FindActor.getDirection(this, owner, heading);
 //		say(getShortDescription() + " is heading " + heading + " next.");
 		Move myMove = new Move(heading, messageRenderer, world);
 

@@ -14,19 +14,21 @@ public class FindActor {
 	 * get the next direction in which the actor is supposed to move
 	 * @param actor who is looking for the owner
 	 * @param owner the actor that is being looked for
-	 * @param currentLocation actor's current location
 	 * @param lastDirection actor's last direction
 	 * @return the next direction for the actor to move in
 	 */
-	public static Direction getDirection(SWActor actor, SWActor owner, Location currentLocation, Direction lastDirection) {
-		
+	public static Direction getDirection(SWActor actor, SWActor owner, Direction lastDirection) {
 		// build a list of available directions
 		ArrayList<Direction> possibleDirections = new ArrayList<Direction>();
+		
+		//actor's current location
+		Location currentLocation = SWWorld.getEntitymanager().whereIs(actor);
+		Location ownerLocation = SWWorld.getEntitymanager().whereIs(owner);
 		
 		for (Grid.CompassBearing d : Grid.CompassBearing.values()) {
 			if (SWWorld.getEntitymanager().seesExit(actor, d)) {
 				//if owner is in a neighbouring location, return owner's direction
-				if (SWWorld.getEntitymanager().whereIs(owner) == currentLocation.getNeighbour(d)) {
+				if (ownerLocation == currentLocation.getNeighbour(d)) {
 					return d;
 				}
 				//else add that direction into possible directions list
