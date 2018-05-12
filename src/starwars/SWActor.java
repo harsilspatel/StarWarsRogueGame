@@ -205,6 +205,11 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 		//Precondition 1: Ensure the damage is not negative. Negative damage could increase the SWActor's hitpoints
 		assert (damage >= 0)	:"damage on SWActor must not be negative";
 		this.hitpoints -= damage;
+		
+		//if the damage is too severe, the maximum decrease in actor's health will be till 0.
+		if (this.hitpoints < 0) {
+			this.hitpoints = 0;
+		}
 	}
 
 	/**

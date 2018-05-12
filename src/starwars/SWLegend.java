@@ -31,7 +31,7 @@ public abstract class SWLegend extends SWActor {
 
 	private boolean isActivated;
 
-	/**An arrayList that represents the actors that this actor*/
+	/**An arrayList that represents the actors that this actor will be training if they're in the same location*/
 	private HashSet<SWActor> canTrain;
 	
 	/** 
@@ -46,17 +46,32 @@ public abstract class SWLegend extends SWActor {
 	protected SWLegend(Team team, int hitpoints, MessageRenderer m, SWWorld world) {
 		super(team, hitpoints, m, world);
 		isActivated = false;
+		/**
+		 * Initializing the canTrain HashSet
+		 */
 		this.canTrain = new HashSet<SWActor>();
 	}
 	
+	/**
+	 * Adds <code>a</code> to the Set so that actor can be trained when in the same location as the teacher
+	 * @param a Actor to be trained
+	 */
 	public void trainActor(SWActor a) {
 		this.canTrain.add(a);
 	}
 	
+	/**
+	 * Removes <code>a</code> from the Set after the actor is trained
+	 * @param a Actor that has been trained
+	 */
 	public void trained(SWActor a) {
 		this.canTrain.remove(a);
 	}
 	
+	/**
+	 * a hashSet of actors is returned that are yet to be trained
+	 * @return a hashSet of actors that are to be trained
+	 */
 	public HashSet<SWActor> getDisciples() {
 		return this.canTrain;
 	}

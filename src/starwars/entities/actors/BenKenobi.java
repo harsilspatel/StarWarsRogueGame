@@ -58,8 +58,13 @@ public class BenKenobi extends SWLegend {
 			return;
 		}
 		
+		//gets Ben's location
 		SWLocation loc = SWWorld.getEntitymanager().whereIs(this);
+		
+		//looking for other actors at Ben's location
 		List<SWEntityInterface> neighbours = SWWorld.getEntitymanager().contents(loc);
+		
+		//if the actor at Ben's location is Ben's disciple (i.e. the actor to be trained), then Train the actor
 		for(SWActor disciple: this.getDisciples()) {
 			if (neighbours.contains(disciple) && disciple.getForce() != 100) {
 				Train train = new Train(disciple, messageRenderer);
