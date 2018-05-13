@@ -19,9 +19,9 @@ Below listed the details of design choices for each project requirement.
 
 ## Ben Kenobi
 **Design choice**
-1. Implement an ArrayList in `BenKenobi` for all the players that are to be trained. That will make it extendable for Ben to train other players, so for example, if we wish to include another player Han Solo, we can add him to Ben's list and Ben will train him when they're in the same spot.
-2. The `Train` class will have a method `checkLocal()` that will take an ArrayList of `SWActors` as parameter. It will check if any of those actors are on the same location as Ben.
-3. If an actor is in the same location as Ben, `Train` will execute `upskill()` method and pass-in that `Actor` as parameter. If there are more than one Actors at the same location, one of them will be randomly be chosen and trained.
+1. Implement an ArrayList in `SWLegend` as legends can train `SWActor`. The arraylist will make it extendable for SWLegend (Ben in this case) to train other players, so for example, if we wish to include another player Han Solo, we can add him to Ben's list and Ben will train him when they're in the same spot.
+2. Ben will check if the if any of his disciple (actor to be trained) is in the same location, if so, Ben will `Train` the actor.
+3. Each Training will increase Actor's force level by 20 points, so if Actor wants his force to increase from 40 to 100, he will have to be in same location as Ben 3 times.
 
 **Advantages**
 - Highly flexible as if we need Ben to train some other Actor, we just have to include that Actor’s name in Ben’s ArrayList. 
@@ -32,18 +32,17 @@ Below listed the details of design choices for each project requirement.
 
 
 ## Droids
-
-
 **Design choice**
 
-1. For simplilcity we will assume that each droid can have only one owner and each owner can own no more than one droid.
+1. For simplilcity we will assume that each droid can have only one owner and each owner can own no more than one droid. Owner will be set while initializing the droid.
 2. The droids will belong to team `Neutral`
-3. A `SWActor` variable in `Droid` that will let the droid know it’s owner.
-4. Implement a function to check if droid is on `badlands`, if it is, decrease it's health.
+4. Implement a function to check if droid is on `badlands`, if it is, decrease it's health by 10 units.
 5. Implementing a `FindActor` behaviour, which will take `SWActor` as a parameter (we will pass-in the owner for droids), that will tell the droid where to move to. It will do so by analysing the neighbouring locations to see if owner is present. If it is then return the `Direction` of it’s owner, if not then command droid to move in a random `Direction`.
-6. We will have two boolean flags:
+6. If droid is moving in random direction, it will move in that direction till it cannot move further (unless it finds its owner on the way!)
+7. We will have two boolean flags:
     - `hasOwner` -- to tell if owner is dead 
     - `isImmobile` -- to tell if droid has health or is immobile
+8. Droid will only move if it has an owner and if it is not immobile.
 
 
 **Advantages**
