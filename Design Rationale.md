@@ -56,11 +56,11 @@ Below listed the details of design choices for each project requirement.
 
 ## Force
 **Design choice**
-1. For simplicity purposes, the force will be integrated into the attack class
+1. For simplicity purposes, the force will be integrated into the `Attack` class
 2. An if...else statement will be implemented to check the force level of whoever is attempting to use the force action.
-3. A second condition will be if the item carried is an instance of the Lightsaber class
+3. A second condition will be if the item carried is an instance of the `Lightsaber` class
 4. A new attack message will be displayed based on whether or not the user was able to attack with the lightsaber.
-5. The accessors and mutators for the force will be implemented in the SWActor class. This is because any actor can take a lightsaber but will not always be able to use it
+5. The accessors and mutators for the force will be implemented in the `SWActor` class. This is because any actor can take a lightsaber but will not always be able to use it
 6. This allows for both Ben and Luke to be able have their force levels set
 
 
@@ -75,7 +75,7 @@ Below listed the details of design choices for each project requirement.
 
 ## Lightsaber
 **Design Choice**
-1. The attack class will only reference to any instances of Class Lightsaber.
+1. The attack class will only reference to any instances of Class `Lightsaber`.
 2. It will be included in the if...else statement (in the attack class) as a condition alongside the force level condition. 
 
 **Advantages**
