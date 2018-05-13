@@ -5,3 +5,5 @@ Had to alter certain parts of the designs to match the code. Some logic and refe
 Changed design again, a less complex and tedious method was implemented. (12:50pm 8 May, 2018)
 
 Due to repeated code, a major design change must be made, force is no longer a class. The attack class will implement a force check instead (3:48pm 11 May, 2018)
+
+Finalized all the diagrams and code (4.33pm 13 May, 2018)
