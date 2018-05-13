@@ -486,49 +486,24 @@ layer=2</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>740</x>
-      <y>310</y>
+      <y>180</y>
+      <w>280</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>260.0;10.0;260.0;140.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>320</y>
       <w>330</w>
-      <h>110</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red</panel_attributes>
-    <additional_attributes>310.0;90.0;100.0;90.0;100.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>610</x>
-      <y>90</y>
-      <w>60</w>
-      <h>250</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-fg=red</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;10.0;10.0;230.0;40.0;230.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>650</x>
-      <y>70</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>Force
-bg=light_gray</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>320</x>
-      <y>70</y>
-      <w>350</w>
-      <h>290</h>
-    </coordinates>
-    <panel_attributes>lt=.
-fg=red
-layer=3</panel_attributes>
-    <additional_attributes>10.0;270.0;10.0;40.0;330.0;10.0</additional_attributes>
+    <additional_attributes>310.0;80.0;90.0;80.0;90.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
