@@ -9,7 +9,8 @@
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>/SWActor/</panel_attributes>
+    <panel_attributes>/SWActor/
+layer=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -543,12 +544,12 @@ bg=light_gray</panel_attributes>
     <coordinates>
       <x>300</x>
       <y>170</y>
-      <w>170</w>
+      <w>180</w>
       <h>450</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red</panel_attributes>
-    <additional_attributes>150.0;430.0;10.0;10.0</additional_attributes>
+    <additional_attributes>160.0;430.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -580,12 +581,12 @@ fg=red</panel_attributes>
     <coordinates>
       <x>70</x>
       <y>250</y>
-      <w>360</w>
-      <h>390</h>
+      <w>390</w>
+      <h>370</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red</panel_attributes>
-    <additional_attributes>10.0;10.0;340.0;370.0</additional_attributes>
+    <additional_attributes>10.0;10.0;370.0;350.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -602,44 +603,8 @@ fg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
-      <y>100</y>
-      <w>100</w>
-      <h>30</h>
-    </coordinates>
-    <panel_attributes>Force
-bg=light_gray</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>120</x>
-      <y>50</y>
-      <w>260</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-fg=red</panel_attributes>
-    <additional_attributes>10.0;60.0;240.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>120</x>
-      <y>120</y>
-      <w>170</w>
-      <h>290</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-fg=red</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;270.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>30</x>
-      <y>160</y>
+      <x>20</x>
+      <y>480</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -650,26 +615,14 @@ bg=light_gray</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>90</x>
-      <y>180</y>
-      <w>170</w>
-      <h>230</h>
+      <x>110</x>
+      <y>390</y>
+      <w>140</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red</panel_attributes>
-    <additional_attributes>10.0;10.0;150.0;210.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>80</x>
-      <y>120</y>
-      <w>30</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-fg=red</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+    <additional_attributes>10.0;100.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -685,13 +638,88 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>170</y>
-      <w>490</w>
-      <h>330</h>
+      <x>320</x>
+      <y>620</y>
+      <w>150</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red</panel_attributes>
-    <additional_attributes>470.0;310.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>340</x>
+      <y>590</y>
+      <w>50</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>gives
+fg=red
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>20</x>
+      <y>400</y>
+      <w>80</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red
+layer=0</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>250</y>
+      <w>50</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red
+layer=0</panel_attributes>
+    <additional_attributes>10.0;10.0;30.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>160</y>
+      <w>480</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>460.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>170</y>
+      <w>500</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>480.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>170</y>
+      <w>500</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>480.0;340.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
