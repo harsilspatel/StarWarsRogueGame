@@ -1,10 +1,10 @@
 package starwars.entities;
 
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
-import starwars.Capability;
 import starwars.SWAffordance;
 import starwars.SWEntity;
 import starwars.actions.Dip;
+import starwars.actions.Attack;
 
 /**
  * Class to represent a water reservoir.  <code>Reservoirs</code> are currently pretty passive.
@@ -35,6 +35,10 @@ public class Reservoir extends SWEntity {
 		super(m);
 		SWAffordance dip = new Dip(this, m);
 		this.addAffordance(dip);	
+		
+		//reservoir needs to be attackable
+		SWAffordance attack = new Attack(this,m);
+		this.addAffordance(attack);
 		
 		this.setLongDescription("a water reservoir.");
 		this.setShortDescription("a water reservoir, full of cool, clear, refreshing water");
