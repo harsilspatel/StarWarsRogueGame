@@ -5,6 +5,7 @@ import edu.monash.fit2099.simulator.space.Direction;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.SWActor;
 import starwars.SWAffordance;
+import starwars.SWEntityInterface;
 import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
@@ -63,8 +64,9 @@ public class Droid extends SWActor {
 		
 		say(describeLocation());
 		
+		SWLocation currentLocation = SWWorld.getEntitymanager().whereIs(this);
 		//checking if moving through badlands
-		if (SWWorld.getEntitymanager().whereIs(this).getSymbol() == "b".charAt(0)) {
+		if (currentLocation.getSymbol() == "b".charAt(0)) {
 			takeDamage(10);
 			say(getShortDescription() + " the droid is moving through bad lands");
 			
@@ -77,7 +79,15 @@ public class Droid extends SWActor {
 		}
 		
 		
-		
+		for (SWEntityInterface e: SWWorld.getEntitymanager().contents(currentLocation)) {
+			if (e instanceof Sandcrawler) {
+				say(getShortDescription() + " panics on its encounter with the sandcrawler!");
+				//if sandcrawler is in the same location as the droid, don't schedule droid's Move as it will be taken by the sandcrawler.
+				//because, first the droid will schedule it's move, then sandcrawler will remove it, then scheduler will try to execute
+				//droid's move command which will result in nullpointer exception. So to prevent it we don't schedule droid's move if sandrawler is there.
+				return;
+			}
+		}
 		//getting next direction
 		heading = FindActor.getDirection(this, owner, heading);
 //		say(getShortDescription() + " is heading " + heading + " next.");

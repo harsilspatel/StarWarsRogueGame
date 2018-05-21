@@ -188,6 +188,11 @@ public class SWWorld extends World {
 		r3p0.setSymbol("D");
 		loc = myGrid.getLocationByCoordinates(2, 5);
 		entityManager.setLocation(r3p0, loc);
+		
+		Sandcrawler javaMobile = new Sandcrawler("jMobile", 50, iface, this, patrolmoves);
+		javaMobile.setSymbol("M");
+		loc = myGrid.getLocationByCoordinates(1, 4);
+		entityManager.setLocation(javaMobile, loc);
 	}
 
 	/*
