@@ -184,6 +184,19 @@ public class SWWorld extends World {
 		loc = myGrid.getLocationByCoordinates(4,3);
 		entityManager.setLocation(tim, loc);
 		
+		//Grenades
+		Grenade gOne = new Grenade(iface);
+		loc = myGrid.getLocationByCoordinates(1, 3);
+		entityManager.setLocation(gOne, loc);
+		
+		Grenade gTwo = new Grenade(iface);
+		loc = myGrid.getLocationByCoordinates(6, 7);
+		entityManager.setLocation(gTwo, loc);
+		
+		Grenade gThree = new Grenade(iface);
+		loc = myGrid.getLocationByCoordinates(8, 6);
+		entityManager.setLocation(gThree, loc);
+		
 		Droid r3p0 = new Droid(100, "R3P0", iface, this, luke);
 		r3p0.setSymbol("D");
 		loc = myGrid.getLocationByCoordinates(2, 5);
