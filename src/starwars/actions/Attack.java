@@ -114,7 +114,7 @@ public class Attack extends SWAffordance implements SWActionInterface {
 			a.say("\t" + a.getShortDescription() + " says: Silly me! We're on the same team, " + target.getShortDescription() + ". No harm done");
 		}
 		else if (a.isHumanControlled() // a human-controlled player can attack anyone
-			|| (targetIsEntity && a.getTeam() != ((SWActor) targetEntity).getTeam()) || targetEntity instanceof Reservoir) {  // others will only attack actors on different teams
+			|| (targetIsEntity instanceof SWActor && a.getTeam() != ((SWActor) targetEntity).getTeam()) || targetEntity instanceof Reservoir) {  // others will only attack actors on different teams
 				
 			a.say(a.getShortDescription() + " is attacking " + target.getShortDescription() + "!");
 			
