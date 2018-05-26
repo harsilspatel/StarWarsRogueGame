@@ -40,11 +40,11 @@ public class SWGridController implements GridController {
 	 * @param 	world the world to be considered by the controller
 	 * @pre 	the world should not be null
 	 */
-	public SWGridController(SWWorld world) {
+	public SWGridController(SWWorld world, boolean showBanner) {
 		this.grid = world.getGrid();
 		
 		//change the user interface to be used here in the constructor
-		SWGridController.ui = new SWGridTextInterface(this.grid); //use a Text Interface to interact
+		SWGridController.ui = new SWGridTextInterface(this.grid, showBanner); //use a Text Interface to interact
 		//this.ui = new SWGridBasicGUI(this.grid); //Use a Basic GUI to interact
 		//this.ui = new SWGridGUI(this.grid); //Use a GUI with better graphics to interact
 	}

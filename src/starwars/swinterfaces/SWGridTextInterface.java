@@ -43,11 +43,13 @@ public class SWGridTextInterface implements GridRenderer {
 	 * @param 	grid the grid of the world
 	 * @pre 	grid should not be null 
 	 */
-	public SWGridTextInterface(SWGrid grid) {
+	public SWGridTextInterface(SWGrid grid, boolean showBanner) { //modified the constructor for more flexibility
+		// checking if showBanner is a boolean
+		assert ((showBanner||(!showBanner)) == true): "showBanner should be a boolean";
 		SWGridTextInterface.grid = grid;
 		instream = new Scanner(System.in);
 		//set the show banner to true so that the banner would be displayed on the first map render
-		showBanner = true;
+		this.showBanner = showBanner;
 	}
 	
 	
