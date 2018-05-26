@@ -1,12 +1,16 @@
 package starwars.actions;
 
+import edu.monash.fit2099.simulator.matter.Entity;
 import edu.monash.fit2099.simulator.userInterface.MessageRenderer;
 import starwars.Capability;
 import starwars.SWActionInterface;
 import starwars.SWActor;
 import starwars.SWAffordance;
 import starwars.SWEntityInterface;
+import starwars.entities.Blaster;
+import starwars.entities.Grenade;
 import starwars.entities.LightSaber;
+import starwars.entities.Reservoir;
 
 
 /**
@@ -98,44 +102,60 @@ public class Attack extends SWAffordance implements SWActionInterface {
 	@Override
 	public void act(SWActor a) {
 		SWEntityInterface target = this.getTarget();
-		boolean targetIsActor = target instanceof SWActor;
-		SWActor targetActor = null;
+		boolean targetIsEntity = target instanceof Entity; //changed to instances of entity since non actors can also be attacked
+		Entity targetEntity = null;
 		int energyForAttackWithWeapon = 1;//the amount of energy required to attack with a weapon
 		
-		if (targetIsActor) {
-			targetActor = (SWActor) target;
+		if (targetIsEntity) {
+			targetEntity = (Entity) target;
 		}
 					
-		
-		if (targetIsActor && (a.getTeam() == targetActor.getTeam())) { //don't attack SWActors in the same team
+		//downcast targetEntity to SWActor to use the getTeam() method
+		//this if statement is only for attacking actors
+		if (targetIsEntity && targetEntity instanceof SWActor && a.getTeam() == ((SWActor) targetEntity).getTeam()) { //don't attack SWActors in the same team
 			a.say("\t" + a.getShortDescription() + " says: Silly me! We're on the same team, " + target.getShortDescription() + ". No harm done");
 		}
 		else if (a.isHumanControlled() // a human-controlled player can attack anyone
-			|| (targetIsActor && (a.getTeam() != targetActor.getTeam()))) {  // others will only attack actors on different teams
+			|| (targetIsEntity && a.getTeam() != ((SWActor) targetEntity).getTeam()) || targetEntity instanceof Reservoir) {  // others will only attack actors on different teams
 				
 			a.say(a.getShortDescription() + " is attacking " + target.getShortDescription() + "!");
 			
 			SWEntityInterface itemCarried = a.getItemCarried();
 			if (itemCarried != null && itemCarried.hasCapability(Capability.WEAPON)) {//if the actor is carrying an item and if it's a weapon
 				
-				//if item carried is a weapon other than saber, then attack
-				//if item carried is saber, then check if force is equal to or greater than 80
-				if (!(itemCarried instanceof LightSaber) || itemCarried instanceof LightSaber && a.getForce() >= 80) {
-					target.takeDamage(itemCarried.getHitpoints() + 1); // damage is inflicted on the target
-					a.takeDamage(energyForAttackWithWeapon); // actor uses energy to attack
-					if(!(itemCarried instanceof LightSaber)){ //lightsabers are indestructible
-					itemCarried.takeDamage(1); // weapon gets blunt
+	        	//separate if statements since each of these items have different results
+				//e.g. take no damage, are destroyed completely upon use or take 1 damage
+				
+					if(itemCarried instanceof Blaster){
+						target.takeDamage(itemCarried.getHitpoints() + 1); 
+						a.takeDamage(energyForAttackWithWeapon); 
+						itemCarried.takeDamage(1); // only the blaster takes 1 damage out of all weapons
 					}
-				}
+					
+					//if item carried is grenade, the damage the grenade takes is it's own hitpoints since it can only be used once
+					 if(itemCarried instanceof Grenade){
+						target.takeDamage(itemCarried.getHitpoints()); 
+						a.takeDamage(energyForAttackWithWeapon); 
+						itemCarried.takeDamage(itemCarried.getHitpoints()); //grenade loses its weapon capability as it is a one time use
+						a.setItemCarried(null); //player is no longer holding an item
+					}
+					
+					//if item carried is saber, then check if force is equal to or greater than 80 to be able to wield it
+					 if(itemCarried instanceof LightSaber && a.getForce() >= 80){
+						target.takeDamage(itemCarried.getHitpoints());
+						a.takeDamage(energyForAttackWithWeapon);
+						//lightsaber is indestructible
+					}
+					
 				else {//an attack with a none weapon
-					if (targetIsActor) {
+					if (targetEntity instanceof SWActor) { //non actor entities can't speak
 						String itemDescription = itemCarried.getShortDescription();
 						
 						//attempt of attack with a lightsaber when the actor isn't powerful enough with the force
 						if (itemCarried instanceof LightSaber) {
 							itemDescription = "an unwielded saber";
 						}
-						targetActor.say("\t" + targetActor.getShortDescription()
+						targetEntity.say("\t" + targetActor.getShortDescription()
 								+ " is amused by " + a.getShortDescription()
 								+ "'s attempted attack with "
 								+ itemDescription);
@@ -160,10 +180,10 @@ public class Attack extends SWAffordance implements SWActionInterface {
 				
 			}
 			if (this.getTarget().getHitpoints() <= 0) {  // can't use isDead(), as we don't know that the target is an actor
-				target.setLongDescription(target.getLongDescription() + ", that was killed in a fight");
+				target.setLongDescription(target.getLongDescription() + ", was destroyed");
 							
 				//remove the attack affordance of the dead actor so it can no longer be attacked
-				targetActor.removeAffordance(this);
+				targetEntity.removeAffordance(this);
 
 				
 			}
