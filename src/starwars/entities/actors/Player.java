@@ -60,6 +60,11 @@ public class Player extends SWActor {
 	@Override
 	public void act() {	
 		describeScene();
+		for (SWEntityInterface e: this.world.getEntityManager().contents(this.world.getEntityManager().whereIs(this))) {
+			if (e instanceof Sandcrawler) {
+				((Sandcrawler) e).enterCrawler(this);
+			}
+		}
 		scheduler.schedule(SWGridController.getUserDecision(this), this, 1);
 		
 	}
