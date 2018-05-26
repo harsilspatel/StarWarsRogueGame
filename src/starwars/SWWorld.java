@@ -35,11 +35,13 @@ public class SWWorld extends World {
 	 * Constructor of <code>SWWorld</code>. This will initialize the <code>SWLocationMaker</code>
 	 * and the grid.
 	 */
-	public SWWorld() {
+	public SWWorld(int width, int height) {
+		//tweaked the initializer for more flexible design
+		assert width > 0: "Width should be a positive number";
+		assert height > 0: "Height should be a positive number";
 		SWLocation.SWLocationMaker factory = SWLocation.getMaker();
-		myGrid = new SWGrid(factory);
-		space = myGrid;
-		
+		myGrid = new SWGrid(width, height, factory);
+		space = myGrid;	
 	}
 
 	/** 
@@ -67,21 +69,24 @@ public class SWWorld extends World {
 	 * on the grid.
 	 * 
 	 * @author 	ram
-	 * @param 	iface a MessageRenderer to be passed onto newly-created entities
 	 */
-	public void initializeWorld(MessageRenderer iface) {
+	public void initializeWorld(String worldName) {
 		SWLocation loc;
 		// Set default location string
 		for (int row=0; row < height(); row++) {
 			for (int col=0; col < width(); col++) {
 				loc = myGrid.getLocationByCoordinates(col, row);
-				loc.setLongDescription("SWWorld (" + col + ", " + row + ")");
-				loc.setShortDescription("SWWorld (" + col + ", " + row + ")");
+				loc.setLongDescription(worldName + " (" + col + ", " + row + ")");
+				loc.setShortDescription(worldName + " (" + col + ", " + row + ")");
 				loc.setSymbol('.');				
 			}
 		}
-		
-		
+	}
+	
+	// divided the initializeWorld() method into initializeWorld() and initializeEntities() for more modular design
+	public void initializeEntities(MessageRenderer iface) {
+		SWLocation loc;
+	
 		// BadLands
 		for (int row = 5; row < 8; row++) {
 			for (int col = 4; col < 7; col++) {
@@ -111,7 +116,7 @@ public class SWWorld extends World {
 		entityManager.setLocation(ben, loc);
 		
 		
-		loc = myGrid.getLocationByCoordinates(5,9);
+		loc = myGrid.getLocationByCoordinates(2,4);
 		
 		// Luke
 		Player luke = new Player(Team.GOOD, 100, iface, this);
