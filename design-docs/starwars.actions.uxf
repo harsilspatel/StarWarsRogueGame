@@ -486,24 +486,50 @@ layer=2</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>740</x>
-      <y>180</y>
-      <w>280</w>
-      <h>160</h>
+      <y>310</y>
+      <w>330</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red</panel_attributes>
-    <additional_attributes>260.0;10.0;260.0;140.0;10.0;140.0</additional_attributes>
+    <additional_attributes>310.0;90.0;100.0;90.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>410</x>
+      <y>20</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>starwars.entities
+--
+bg=gray
+fg=red</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>740</x>
-      <y>320</y>
-      <w>330</w>
-      <h>100</h>
+      <y>190</y>
+      <w>280</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red</panel_attributes>
-    <additional_attributes>310.0;80.0;90.0;80.0;90.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>260.0;10.0;260.0;120.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>80</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;140.0;50.0</additional_attributes>
   </element>
 </diagram>
