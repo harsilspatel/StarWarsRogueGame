@@ -153,7 +153,7 @@ public class Attack extends SWAffordance implements SWActionInterface {
 						if (itemCarried instanceof LightSaber) {
 							itemDescription = "an unwielded saber";
 						}
-						targetEntity.say("\t" + targetActor.getShortDescription()
+						targetEntity.say("\t" + targetEntity.getShortDescription()
 								+ " is amused by " + a.getShortDescription()
 								+ "'s attempted attack with "
 								+ itemDescription);
