@@ -7,10 +7,8 @@ import starwars.SWActionInterface;
 import starwars.SWActor;
 import starwars.SWAffordance;
 import starwars.SWEntityInterface;
-import starwars.entities.Blaster;
-import starwars.entities.Grenade;
-import starwars.entities.LightSaber;
-import starwars.entities.Reservoir;
+import starwars.entities.*;
+
 
 
 /**
