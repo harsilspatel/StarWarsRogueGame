@@ -83,6 +83,9 @@ public class SWEntity extends Entity implements SWEntityInterface {
 		//Precondition 1: Ensure that the damage is not negative
 		assert (damage >= 0)	:"damage on SWEntity must not be negative";
 		this.hitpoints -= damage;
+		if (this.hitpoints < 0) {
+			this.hitpoints = 0;
+		}
 	}
 	
 }
