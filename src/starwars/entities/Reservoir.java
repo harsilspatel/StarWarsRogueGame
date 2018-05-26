@@ -61,15 +61,14 @@ public class Reservoir extends SWEntity {
 	public void takeDamage(int damage) {
 		super.takeDamage(damage);
 		
-		if (this.hitpoints < 20) {
-			this.setShortDescription("a damaged water reservoir");
-			this.setLongDescription("a damaged water reservoir, leaking slowly");
-			this.setSymbol("V");
-		}
-		else if (this.hitpoints <= 0) {
+		if (this.hitpoints <= 0) {
 			this.setShortDescription("the wreckage of a water reservoir");
 			this.setLongDescription("the wreckage of a water reservoir, surrounded by slightly damp soil");
 			this.setSymbol("X");
+		} else if (this.hitpoints < 20) {
+			this.setShortDescription("a damaged water reservoir");
+			this.setLongDescription("a damaged water reservoir, leaking slowly");
+			this.setSymbol("V");
 		}
 	}
 }
