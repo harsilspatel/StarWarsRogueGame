@@ -108,5 +108,24 @@ Below listed the details of design choices for each project requirement.
 - Additional conditions must be added to deal with non-actors
 - Some changes necessary to variables and if statements
 
- 
+## Sandcrawler
+
+The idea is, sandcrawler will capture the droid, then it's owner will go into the crawler (only if he has enough Force) for the rescue. The owner will go to the droid's location inside the `crawlerWorld`. As implemented in previous tasks, the droid will start following the owner if owner is in it's neightbouring location. The owner will then take the droid to the exit door and both will leave the sandcrawler.
+
+**Design Choice**
+1. Implemented a `Sandcrawler` class which will have a mini interactable world where-in the Player can goto to and save the droid.
+2. Crawler will capture the droid if they're on the same location. (It will only capture one droid; will not capture another droid will previous one is released)
+3. Captured droid will be allowed to move inside the crawler
+4. When the Player enters the `crawlerWorld` the main-world will still be ticking
+5. Implemented `Enter` affordance for the Sandcrawler.
+6. Implemented a `Door` entity and `Exit` affordance so the Player can leave the crawler.
+7. Reusing SWWorld in Sandcrawler.
+
+**Advantages**
+- The Sandcrawler will have a swworld which can be made more interative by placing more entities, for eg. Jawas can be placed to fight Luke.
+- Reusing the SWWorld code repects the DRY principle, easier to maintain less code.
+
+**Disadvantages**
+- The code gets extensively complex and sandcrawler gets dependent on many other classes.
+- Understanding the implementation of Sandcrawler can be challenging.
 
