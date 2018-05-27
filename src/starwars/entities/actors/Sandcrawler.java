@@ -120,7 +120,7 @@ public class Sandcrawler extends SWActor {
 		if (!justReleasedDroid && capturedDroid == null) {
 			
 			//the javas will capture the droid if both are on the same location
-			for (SWEntityInterface e: this.world.getEntityManager().contents(this.world.getEntityManager().whereIs(this))) {
+			for (SWEntityInterface e: this.world.getEntityManager().contents(getLocation())) {
 				if (e instanceof Droid) {
 					capturedDroid = (Droid) e;
 					this.world.getEntityManager().remove(capturedDroid);	//remove the droid from the main world
