@@ -85,3 +85,28 @@ Below listed the details of design choices for each project requirement.
 
 **Disadvantages**
 - Adds extra steps to allowing attacks to be made by lightsaber wielders. 
+
+
+## Grenade
+**Design Choice**
+1. Basic class, practically the same as other items.
+2. Direct damage is the same as its hitpoints.
+
+**Advantages**
+- Simple implementation .
+
+## Reservoir
+**Design Choice**
+1. To make non-actors attackable, the attack class needs to be changed so that the target can be a non-actor.
+2. In future this would allow for any object to be attacked (given it has the attack affordance).
+
+**Advantages**
+- Allows for any entity with the attack affordance to be attacked.
+- In this case, it only deals with attacking a reservoir.
+
+**Disadvantages**
+- Additional conditions must be added to deal with non-actors
+- Some changes necessary to variables and if statements
+
+ 
+
