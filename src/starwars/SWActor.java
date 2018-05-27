@@ -124,6 +124,14 @@ public abstract class SWActor extends Actor<SWActionInterface> implements SWEnti
 	}
 	
 	/**
+	 * Getter for <code>scheduler</code> of this <code>SWActor</code>
+	 * @return the scheduler
+	 */
+	public static Scheduler getScheduler() {
+		return scheduler;
+	}
+	
+	/**
 	 * Returns the team to which this <code>SWActor</code> belongs to.
 	 * <p>
 	 * Useful in comparing the teams different <code>SWActor</code> belong to.
