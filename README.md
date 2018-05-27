@@ -7,3 +7,13 @@ Changed design again, a less complex and tedious method was implemented. (12:50p
 Due to repeated code, a major design change must be made, force is no longer a class. The attack class will implement a force check instead (3:48pm 11 May, 2018)
 
 Finalized all the diagrams and code (4.33pm 13 May, 2018)
+
+### Assignment 3
+
+#### Harsil's part:
+-   Sandcrawler: completed
+
+#### David's part:
+-   Reservoir: completed
+-   Grenade: partially completed
+
