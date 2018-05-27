@@ -94,6 +94,11 @@ public class SWGridController implements GridController {
 		return userDecision;
 	}
 	
+	/**
+	 * the getUserDecision() method asks the user for the decision whereas this method remembers what the user's decision was.
+	 * @return the user's decision
+	 * @author harsilPatel
+	 */
 	public static SWActionInterface userDecision() {
 		return userDecision;
 	}
