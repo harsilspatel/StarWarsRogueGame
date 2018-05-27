@@ -8,6 +8,7 @@ import starwars.SWEntityInterface;
 import starwars.SWLocation;
 import starwars.SWWorld;
 import starwars.Team;
+import starwars.actions.Enter;
 import starwars.actions.Move;
 import starwars.entities.actors.behaviors.Patrol;
 import starwars.swinterfaces.SWGridController;
@@ -30,6 +31,7 @@ public class Sandcrawler extends SWActor {
 		this.crawlerWorld = new SWWorld(4,4);
 		this.crawlerScheduler = new Scheduler(1, crawlerWorld);
 		this.crawlerWorld.initializeWorld(name);
+		this.addAffordance(new Enter(this, m));
 	}
 
 	@Override
@@ -63,23 +65,33 @@ public class Sandcrawler extends SWActor {
 			say(getShortDescription() + " moves " + newDirection);
 			Move myMove = new Move(newDirection, messageRenderer, world);
 
-			scheduler.schedule(myMove, this, 1);
+			scheduler.schedule(myMove, this, 2);
 		} else {
 			this.skipSchedule = true;
 		}
-		//not using waittime() because sandcrawler needs to act on every tcik() to capture the droid
+		//not using waittime() because sandcrawler needs to act on every tick() to capture the droid
 	}
 	
 	public void enterCrawler(SWEntityInterface e) {
+		Scheduler mainScheduler = SWActor.getScheduler();
 		this.crawlerUIController = new SWGridController(crawlerWorld, false);
 		SWLocation loc = this.crawlerWorld.getGrid().getLocationByCoordinates(0, 1);
 		this.crawlerWorld.getEntityManager().setLocation(e, loc);
-		((SWActor) e).resetMoveCommands(loc);
+		SWActor a = (SWActor) e;
+		a.resetMoveCommands(loc);
 		SWActor.setScheduler(crawlerScheduler);
 		while(true) {
 			crawlerUIController.render();
 			crawlerScheduler.tick();
+			if (this.crawlerWorld.getEntityManager().whereIs(a) == this.crawlerWorld.getGrid().getLocationByCoordinates(3, 3)) {
+				break;
+			}
 		}
+		SWActor.setScheduler(mainScheduler);
+		loc = SWWorld.getEntitymanager().whereIs(this);
+		SWWorld.getEntitymanager().setLocation(a, loc);
+		a.resetMoveCommands(loc);
+		this.messageRenderer = new SWGridController(this.world, false);
 	}
 	
 	@Override
