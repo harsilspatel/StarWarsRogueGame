@@ -59,7 +59,7 @@ public class BenKenobi extends SWLegend {
 		}
 		
 		//gets Ben's location
-		SWLocation loc = SWWorld.getEntitymanager().whereIs(this);
+		SWLocation loc = getLocation();
 		
 		//looking for other actors at Ben's location
 		List<SWEntityInterface> neighbours = SWWorld.getEntitymanager().contents(loc);

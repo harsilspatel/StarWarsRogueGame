@@ -60,14 +60,9 @@ public class Player extends SWActor {
 	@Override
 	public void act() {	
 		describeScene();
-		for (SWEntityInterface e: this.world.getEntityManager().contents(this.world.getEntityManager().whereIs(this))) {
-			if (e instanceof Sandcrawler) {
-				((Sandcrawler) e).enterCrawler(this);
-			}
-		}
 		scheduler.schedule(SWGridController.getUserDecision(this), this, 1);
-		
 	}
+	
 	/**
 	 * This method will describe, 
 	 * <ul>
@@ -82,7 +77,7 @@ public class Player extends SWActor {
 	 */
 	public void describeScene() {
 		//get the location of the player and describe it
-		SWLocation location = this.world.getEntityManager().whereIs(this);
+		SWLocation location = getLocation();
 		say(this.getShortDescription() + " [" + this.getHitpoints() + "]"  + " [" + this.getForce() + "]" + " is at " + location.getShortDescription());
 		
 		//get the items carried for the player

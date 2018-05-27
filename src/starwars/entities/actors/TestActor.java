@@ -58,7 +58,7 @@ public class TestActor extends SWActor {
 	 */
 	public void describeScene() {
 		//get the location of the player and describe it
-		SWLocation location = this.world.getEntityManager().whereIs(this);
+		SWLocation location = getLocation();
 		say(this.getShortDescription() + " [" + this.getHitpoints() + "] is at " + location.getShortDescription());
 		
 		//get the items carried for the player

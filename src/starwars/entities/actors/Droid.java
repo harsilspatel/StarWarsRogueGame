@@ -64,7 +64,7 @@ public class Droid extends SWActor {
 		
 		say(describeLocation());
 		
-		SWLocation currentLocation = SWWorld.getEntitymanager().whereIs(this);
+		SWLocation currentLocation = getLocation();
 		//checking if moving through badlands
 		if (currentLocation.getSymbol() == "b".charAt(0)) {
 			takeDamage(10);
@@ -118,7 +118,7 @@ public class Droid extends SWActor {
 	 * @return a string describing droid's location on the map
 	 */
 	private String describeLocation() {
-		SWLocation location = this.world.getEntityManager().whereIs(this);
+		SWLocation location = getLocation();
 		return this.getShortDescription() + " [" + this.getHitpoints() + "] is at " + location.getShortDescription();
 
 	}

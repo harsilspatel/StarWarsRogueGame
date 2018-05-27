@@ -85,7 +85,7 @@ public class TuskenRaider extends SWActor {
 	}
 
 	private String describeLocation() {
-		SWLocation location = this.world.getEntityManager().whereIs(this);
+		SWLocation location = getLocation();
 		return this.getShortDescription() + " [" + this.getHitpoints() + "] is at " + location.getShortDescription();
 
 	}
