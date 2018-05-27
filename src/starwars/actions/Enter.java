@@ -31,6 +31,10 @@ public class Enter extends SWAffordance {
 		return !a.isDead();
 	}
 
+	/**
+	 * This method checks if the player has enough force, if it does, it will let the player go inside the crawler
+	 * else it will displays a message describing the situation
+	 */
 	@Override
 	public void act(SWActor a) {
 		if (a.getForce() >= 40) {  //if force is enough, then "a" canDo the Action "Enter"

@@ -29,6 +29,11 @@ public class Exit extends SWAffordance {
 		return !a.isDead();
 	}
 
+	/**
+	 * The act() of Exit does not do anything by itself, because we should break the infinite while loop in the insideCrawler()
+	 * which can only be done from inside the while loop. The way it break the loop is, it will check if the userDecision was to Exit
+	 * and if it was then the while loop will be broken and the exit protocol will be initialised inside the insideCrawler() method of Sandcrawler
+	 */
 	@Override
 	public void act(SWActor a) {
 		return;
