@@ -36,7 +36,7 @@ public class SWWorld extends World {
 	 * and the grid.
 	 */
 	public SWWorld(int width, int height) {
-		//tweaked the initializer for more flexible design
+		//tweaked the initializer to take width and height as parameters for more flexible design
 		assert width > 0: "Width should be a positive number";
 		assert height > 0: "Height should be a positive number";
 		SWLocation.SWLocationMaker factory = SWLocation.getMaker();
@@ -204,7 +204,7 @@ public class SWWorld extends World {
 		
 		Droid r3p0 = new Droid(100, "R3P0", iface, this, luke);
 		r3p0.setSymbol("D");
-		loc = myGrid.getLocationByCoordinates(2, 5);
+		loc = myGrid.getLocationByCoordinates(1, 4);
 		entityManager.setLocation(r3p0, loc);
 		
 		Sandcrawler javaMobile = new Sandcrawler("jMobile", 50, iface, this, patrolmoves);
