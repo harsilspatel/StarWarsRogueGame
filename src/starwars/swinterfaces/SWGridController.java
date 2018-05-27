@@ -30,6 +30,8 @@ public class SWGridController implements GridController {
 	/**SWgrid of the world*/
 	private SWGrid grid;
 	
+	private static SWActionInterface userDecision;
+	
 	/**
 	 * Constructor of this <code>SWGridController</code>
 	 * <p>
@@ -88,7 +90,12 @@ public class SWGridController implements GridController {
 		ActionInterface selectedAction = ui.getSelection(cmds);
 		
 		//cast and return selection
-		return (SWActionInterface)selectedAction;
+		userDecision = (SWActionInterface)selectedAction;
+		return userDecision;
+	}
+	
+	public static SWActionInterface userDecision() {
+		return userDecision;
 	}
 	
 }
