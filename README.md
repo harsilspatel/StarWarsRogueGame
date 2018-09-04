@@ -1,19 +1,13 @@
-Had completed the WBA and the Design Rationale.md before the deadline but forgot to move the files in `design-docs`, so moving them now (3.52pm 1 May, 2018)
+# FIT2099 Assignment
 
-Had to alter certain parts of the designs to match the code. Some logic and referencing didn't work and was changed accordingly. (5:42pm 7 May, 2018)
+The objective of this assignment was to work in pairs and extend the existing software system abiding by the object-oriented design principles. We were required to collaborate using git and design well written visual forms, using standard UML diagrams.
 
-Changed design again, a less complex and tedious method was implemented. (12:50pm 8 May, 2018)
+## Student details
 
-Due to repeated code, a major design change must be made, force is no longer a class. The attack class will implement a force check instead (3:48pm 11 May, 2018)
+### Harsil Patel
+- Student email: hpat0003@student.monash.edu
+- Student id: 28334825
 
-Finalized all the diagrams and code (4.33pm 13 May, 2018)
-
-### Assignment 3
-
-#### Harsil's part:
--   Sandcrawler: completed
-
-#### David's part:
--   Reservoir: completed
--   Grenade: partially completed
-
+### David Bui
+- Student email: dbui0001@student.monash.edu
+- Student id: 28891465
