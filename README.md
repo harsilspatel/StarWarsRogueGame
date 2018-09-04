@@ -11,3 +11,9 @@ The objective of this assignment was to work in pairs and extend the existing so
 ### David Bui
 - Student email: dbui0001@student.monash.edu
 - Student id: 28891465
+
+</br>
+
+#### Plagiarism Notice
+
+The code in this repository is not endorsed by Monash University. Please note that copying the code for unit assessments without referencing will result in a breach in Academic Integrity Policy and that the author @harsilspatel will not be held responsible for these breaches. For more information please visit https://www.monash.edu/students/academic/policies/academic-integrity
