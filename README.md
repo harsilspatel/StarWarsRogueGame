@@ -12,10 +12,16 @@ The objective of this assignment was to work in pairs and extend the existing so
 - Student email: dbui0001@student.monash.edu
 - Student id: 28891465
 
+
+## GIF 🎞
+
+<img src="screencaptures/gameplay.gif">
+
+
 </br>
 
 ## Credits
-Assignment base by [David Squire](http://users.monash.edu/~davids/)
+Assignment base by [Dr. David Squire](http://users.monash.edu/~davids/)
 
 
 #### Plagiarism Notice
