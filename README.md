@@ -22,7 +22,20 @@ A blaster is a weapon with hitpoints 100 and is represented by ```b```.
 A canteen, denoted by ```c```, can be used to contain water. It can be filled at a ```Reservoir```, or any other Entity that has a ```Dip``` affordance.
 
 #### Door
-A door, represented by ```d```, is an entity with ```Enter``` and ```Exit``` affordances so that the player (controlling Luke) can enter and exit other entities (```Sandcrawler``` for example
+A door, represented by ```d```, is an entity with ```Enter``` and ```Exit``` affordances so that the player (controlling Luke) can enter and exit other entities (```Sandcrawler``` for example)
+
+#### Grenade
+A grenade, which is identified by ```g``` on the text based user interface, when thrown explodes violently, doing damage to both actors and other entities, in “rings” of differing severity. It causes damages as follows:
+- Entities in the location where the grenade is thrown lose 20 hitpoints.
+- Entities in locations that can be reached in one step from the location where the grenade is thrown lose 10 points.
+- Entities in locations that can be reached in one step from the location where the grenade is thrown lose 5 points.
+- The actor that throws the grenade is not affected.
+
+#### Lightsaber
+A lightsaber, marked by ```†``` on the interface, can be picked up by any entity, but only those entities with a lot of ```Force``` ability can wield one and use it as a weapon.
+
+#### Reservoir
+Water reserviors are denoted by ```W``` and they can be dipped into to fill fillable entities (such as ```Canteens```.  They are assumed to have infinite capacity.
 
 
 ## GIF 🎞
